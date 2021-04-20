@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List Movie View-->
+        <scene sceneID="Qyn-lD-TDN">
+            <objects>
+                <viewController id="P6v-7B-8lY" customClass="ListMovieView" customModule="MovieWithVIPER" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QSM-oC-KYa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ltE-lf-1UG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="P6v-7B-8lY" id="0GT-xe-82T"/>
+                                    <outlet property="delegate" destination="P6v-7B-8lY" id="t7o-Re-rbC"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fzv-09-hzc">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Vd-JP-pIq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ltE-lf-1UG" firstAttribute="top" secondItem="7Vd-JP-pIq" secondAttribute="top" id="PPH-gv-BFa"/>
+                            <constraint firstItem="7Vd-JP-pIq" firstAttribute="bottom" secondItem="ltE-lf-1UG" secondAttribute="bottom" id="VSm-39-nG3"/>
+                            <constraint firstItem="fzv-09-hzc" firstAttribute="centerY" secondItem="QSM-oC-KYa" secondAttribute="centerY" id="bz3-Y9-rYI"/>
+                            <constraint firstItem="fzv-09-hzc" firstAttribute="centerX" secondItem="QSM-oC-KYa" secondAttribute="centerX" id="ctM-Om-Oqb"/>
+                            <constraint firstItem="7Vd-JP-pIq" firstAttribute="trailing" secondItem="ltE-lf-1UG" secondAttribute="trailing" id="h3N-zk-YH0"/>
+                            <constraint firstItem="ltE-lf-1UG" firstAttribute="leading" secondItem="7Vd-JP-pIq" secondAttribute="leading" id="klL-kH-2WF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="s7R-gV-5ra"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="fzv-09-hzc" id="xkI-f4-pf5"/>
+                        <outlet property="tableView" destination="ltE-lf-1UG" id="Mbm-uw-HlA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XVC-Fw-0XR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="450.72463768115944" y="112.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A3J-qC-uPn">
+            <objects>
+                <navigationController storyboardIdentifier="navigation" automaticallyAdjustsScrollViewInsets="NO" id="kGV-hL-oDF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eOs-ti-Q2B">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P6v-7B-8lY" kind="relationship" relationship="rootViewController" id="AhT-ZF-Akh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yhC-a3-zPK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-459.4202898550725" y="112.5"/>
+        </scene>
+        <!--Detail Movie View-->
+        <scene sceneID="lgb-SY-pdC">
+            <objects>
+                <viewController storyboardIdentifier="DetailMovieView" id="B8E-j2-3pu" customClass="DetailMovieView" customModule="MovieWithVIPER" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L3e-Wr-ljv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Se veeee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-fJ-OeH">
+                                <rect key="frame" x="175" y="210" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vfh-0b-YUj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsa-gr-0iN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1165" y="113"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
