@@ -10,13 +10,22 @@ import Foundation
 
 class DetailMovieInteractor: DetailMovieInteractorInputProtocol {
 
+    
+
     // MARK: Properties
     weak var presenter: DetailMovieInteractorOutputProtocol?
     var localDatamanager: DetailMovieLocalDataManagerInputProtocol?
     var remoteDatamanager: DetailMovieRemoteDataManagerInputProtocol?
+    
+    func getDataDetailMovie(movieId: String) {
+        remoteDatamanager?.getDataDetailMovie(movieId: movieId)
+    }
 
 }
 
 extension DetailMovieInteractor: DetailMovieRemoteDataManagerOutputProtocol {
-    // TODO: Implement use case methods
+    func callBackDetailMovie(with movie: Movie) {
+        presenter?.callBackDetailMovie(with: movie)
+    }
+    
 }

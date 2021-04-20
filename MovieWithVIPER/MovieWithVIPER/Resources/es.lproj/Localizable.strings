@@ -1,2 +1,4 @@
 titleList = "Listado de peliculas";
- 
+titleOverview = "Sipnosis";
+titleDate = "Fecha de estreno";
+titleOriginalTitle = "Titulo original";

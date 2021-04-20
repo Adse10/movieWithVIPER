@@ -23,6 +23,7 @@ class DetailMovieWireFrame: DetailMovieWireFrameProtocol {
             view.presenter = presenter
             presenter.view = view
             presenter.wireFrame = wireFrame
+            presenter.movieId = movieId
             presenter.interactor = interactor
             interactor.presenter = presenter
             interactor.localDatamanager = localDataManager

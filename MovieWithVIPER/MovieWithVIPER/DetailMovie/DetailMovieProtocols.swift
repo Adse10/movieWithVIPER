@@ -12,6 +12,7 @@ import UIKit
 protocol DetailMovieViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: DetailMoviePresenterProtocol? { get set }
+    func callBackDetailMovie(with movie: Movie)
 }
 
 protocol DetailMovieWireFrameProtocol: class {
@@ -25,11 +26,14 @@ protocol DetailMoviePresenterProtocol: class {
     var interactor: DetailMovieInteractorInputProtocol? { get set }
     var wireFrame: DetailMovieWireFrameProtocol? { get set }
     
+    var movieId: String? { get set }
+    
     func viewDidLoad()
 }
 
 protocol DetailMovieInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
+    func callBackDetailMovie(with movie: Movie)
 }
 
 protocol DetailMovieInteractorInputProtocol: class {
@@ -37,6 +41,8 @@ protocol DetailMovieInteractorInputProtocol: class {
     var presenter: DetailMovieInteractorOutputProtocol? { get set }
     var localDatamanager: DetailMovieLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: DetailMovieRemoteDataManagerInputProtocol? { get set }
+    
+    func getDataDetailMovie(movieId: String)
 }
 
 protocol DetailMovieDataManagerInputProtocol: class {
@@ -46,10 +52,13 @@ protocol DetailMovieDataManagerInputProtocol: class {
 protocol DetailMovieRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: DetailMovieRemoteDataManagerOutputProtocol? { get set }
+    
+    func getDataDetailMovie(movieId: String)
 }
 
 protocol DetailMovieRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
+    func callBackDetailMovie(with movie: Movie)
 }
 
 protocol DetailMovieLocalDataManagerInputProtocol: class {

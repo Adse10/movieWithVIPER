@@ -8,21 +8,27 @@
 
 import Foundation
 
-class DetailMoviePresenter  {
+class DetailMoviePresenter:DetailMoviePresenterProtocol  {
     
     // MARK: Properties
     weak var view: DetailMovieViewProtocol?
     var interactor: DetailMovieInteractorInputProtocol?
     var wireFrame: DetailMovieWireFrameProtocol?
     
-}
-
-extension DetailMoviePresenter: DetailMoviePresenterProtocol {
-    // TODO: implement presenter methods
+    var movieId: String?
+    
     func viewDidLoad() {
+        // Pedimos al interactor el dato del detalle
+        if let movieId = movieId {
+            interactor?.getDataDetailMovie(movieId: movieId)
+        }
     }
 }
 
+
 extension DetailMoviePresenter: DetailMovieInteractorOutputProtocol {
-    // TODO: implement interactor output methods
+    func callBackDetailMovie(with movie: Movie) {
+        view?.callBackDetailMovie(with: movie)
+    }
+
 }
